@@ -6,7 +6,7 @@ IBM Bluemix contains the Python buildpack from [Cloud Foundry](https://github.co
 
 If you just wish to automatically deploy this sample to Bluemix then just click the 'Deploy to Bluemix' button and see this sample deployed into your space.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/bluemix-python-flask-sample)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/bluemix-python-flask-sample)
 
 Alternatively follow the steps below to get the sample code and see how to deploy manually.
 
