@@ -4,6 +4,12 @@ The sample is using [Flask microframework](http://flask.pocoo.org/) and is inten
 
 IBM Bluemix contains the Python buildpack from [Cloud Foundry](https://github.com/cloudfoundry/python-buildpack) and so will be auto-detected as long as a requirements.txt or a setup.py is located in the root of your application.
 
+If you just wish to automatically deploy this sample to Bluemix then just click the 'Deploy to Bluemix' button and see this sample deployed into your space.
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/bluemix-python-flask-sample)
+
+Alternatively follow the steps below to get the sample code and see how to deploy manually.
+
 ##Get this sample
 From a terminal navigate to a location where you want this application code to be downloaded to and issue:
 ```bash
@@ -11,7 +17,7 @@ git clone https://github.com/IBM-Bluemix/bluemix-python-flask-sample
 ```
 or download the zip file containing this sample code.
 
-##Deploy to Bluemix
+##Deploy to Bluemix manually
 From a terminal login into Bluemix and set the api endpoint to the Bluemix region you wish to deploy to:
 ```script
 cf login -a api.ng.bluemix.net
