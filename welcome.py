@@ -13,7 +13,8 @@
 # limitations under the License.
 
 import os
-from flask import Flask
+from flask import Flask, Response, jsonify
+import model.logic 
 
 app = Flask(__name__, static_url_path = '')
 
@@ -25,6 +26,14 @@ def Welcome():
 def WelcomeToMyapp():
     return 'Welcome again to my app running on Bluemix!'
 
+@app.route('/getStories/<keyword>')
+def getStories(keyword):
+  response = model.logic.getStories(keyword)
+  response_dict = {'stories' : response}
+  return jsonify(response_dict)
+
 port = os.getenv('VCAP_APP_PORT', '5000')
+
+app.debug = True
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=int(port))
