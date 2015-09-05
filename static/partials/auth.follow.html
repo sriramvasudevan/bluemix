@@ -1,0 +1,24 @@
+<div ng-controller="FollowCtrl">
+    <div style="margin-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Search Issues</h2>
+                <input type="text" class="form-control" placeholder="Search Issues">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" ng-repeat="issue in issues">
+            <div class="thumbnail thumbnail-caption">
+                <img ng-src="{{ issue.image_url }}">
+                <div class="caption">
+                    <h4>{{ issue.name }}</h4>
+                    <p>{{ issue.description }}</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Follow</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

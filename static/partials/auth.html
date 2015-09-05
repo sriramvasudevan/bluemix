@@ -1,0 +1,93 @@
+<div ng-controller="YouCtrl" id="page-content-wrapper">
+    <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header" ng-hide="" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
+            <button type="button" class="navbar-toggle" ng-init="navbarCollapsed = true" ng-click="navbarCollapsed = !navbarCollapsed">
+                <span style="font-size: 25px"class="fa fa-bars"></span>
+            </button>
+            <a class="navbar-brand" style="width:158px" href="#/">IssueMail</a>
+            <a class="navbar-brand hidden-xs" style="padding-top:25px; padding-left:12px; height:76px; width:30px;" ng-init="sidebar = true" ng-click="sidebar = !sidebar" id="menu-toggle"><span ng-hide="sidebar" class="fa fa-bars"></span><span ng-show="sidebar" class="fa fa-times"></span></a>
+        </div>
+        <div class="collapse navbar-collapse" collapse="navbarCollapsed">
+            <div class="nav-border">
+                <ul id = "left" class="nav navbar-nav">
+                    <li class="first-nav-li"><a ui-sref=".feed">Read</a></li>
+                    <li><a ui-sref=".discuss">Discuss</a></li>
+                    <li><a ui-sref=".follow">Follow</a></li>
+                </ul>
+                <ul id = "right" class="nav navbar-nav navbar-right navbar-icons last-nav-li">
+                    <li dropdown on-toggle="toggled(open)">
+                        <a href="#" class="hidden-md hidden-lg hidden-sm dropdown-toggle" dropdown-toggle>
+                            <span class="fa fa-user"></span> My Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <div class="arrow top"></div>
+                            <li><a href="#">View</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                    <li dropdown on-toggle="toggled(open)">
+                        <a href class="dropdown-toggle" dropdown-toggle>
+                            <span class="fa fa-bell"></span> <span class="hidden-lg">Messages</span>
+                            <span class="navbar-new"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <div class="arrow top"></div>
+                            <li><p>Bla bla bla</p></li>
+                        </ul>
+                    </li>
+                    <li class="hidden-lg hidden-md hidden-sm" dropdown on-toggle="toggled(open)">
+                        <a href class="dropdown-toggle" dropdown-toggle><span class="fa fa-cog"></span> <span class="hidden-lg">Settings</span></a>
+                        <ul class="dropdown-menu">
+                            <div class="arrow top"></div>
+                            <li><a ui-sref="unauth">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="navbar-text navbar-right hidden-sm hidden-xs">What issues do you care about, <a href="#" class="navbar-link">Jerry</a>?</p>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
+            <div style="position: relative">
+                <ul class="sidebar-nav" style="padding-top:20px;">
+                    <li>
+                        <a href ng-init="userCollapsed = true" ng-class="{ 'active': !userCollapsed}" ng-click="userCollapsed = !userCollapsed"><i class="fa fa-user"></i> My Account</a>
+                        <ul class="sidebar-dropdown" collapse="userCollapsed">
+                            <li><a href="#">View</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href ng-init="issueCollapsed = true" ng-class="{ 'active': !issueCollapsed}" ng-click="issueCollapsed = !issueCollapsed"><i class="fa fa-info-circle"></i> Issues</a>
+                        <ul class="sidebar-dropdown" collapse="issueCollapsed">
+                            <li><a href="#">Action</li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href ng-init="timelineCollapsed = true" ng-class="{ 'active': !timelineCollapsed}" ng-click="timelineCollapsed = !timelineCollapsed"><i class="fa fa-newspaper-o"></i> Timelines</a>
+                        <ul class="sidebar-dropdown" collapse="timelineCollapsed">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <hr style="border: 1px solid #b2c6cd; margin-top: 8px; margin-bottom:10px;">
+                    <li>
+                        <p style="color:white; margin-left:15px; padding-top:5px; line-height:15px; text-indent:0px">Built with <span style="color:#f84545;" class="fa fa-heart"></span> @ PennApps</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
