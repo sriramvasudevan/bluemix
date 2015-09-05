@@ -70,7 +70,7 @@ def get_terms(title, brief, body):
     postval = {}
     postval["licenseId"] = CALAIS_KEY
     postval["paramsXML"] = PARAMS
-    postval["content"] = title + ' ' + brief + body
+    postval["content"] = title + ' ' + brief #+ body
 
     curlobj = curl.Curl()
     curlobj.set_option(pycurl.HTTPHEADER,["SOAPAction"])
