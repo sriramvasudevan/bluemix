@@ -1,0 +1,9 @@
+<div class="row">
+    <div>
+        <h1>{{ profile.name }} <small>({{ profile.email }})</small></h1>
+        <h3>{{ profile.frequency.count }} since {{ profile.frequency.timestamp | date }}</h3>
+        <ul style="padding-left:0px; margin-top:20px;">
+            <li ng-repeat="issue in profile.issues" class="label label-primary" style="margin-left:1em; margin-right:1em">{{ issue }}</li>
+        </ul>
+    </div>
+</div>

@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-lg-8">
-        <h1 style="color:#02baf2; margin-left: -10px;">Your Updates:</h1>
-        <div ng-repeat="article in articles">
-            <h1>{{ article.title }} <small><span ng-href="{{ article.source_url }}">{{ article.source }}</span></small></h1>
-            <p>{{ article.description }}</p>
+        <h1 style="color:#02baf2; margin-left: -5px;">Your Updates:</h1>
+        <div ng-repeat="(key, value) in articles">
+            <h1><a ng-href="#/article/{{ key }}" class="article">{{ value.headline }}</a> <small><span ng-href="{{ value.source_url }}">{{ value.source }}</span></small></h1>
+            <p>{{ value.description }}</p>
         </div>
     </div>
     <div class="col-lg-4">

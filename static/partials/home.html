@@ -4,24 +4,22 @@
             <div class="tile tile-login">
                 <h1 style="margin-bottom:40px; color:#fad46b;">Issue Mail</h1>
                 <div class="input-icon">
-                    <span class="fa-user fa"></span>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <span class="fa fa-envelope"></span>
+                    <input type="email" ng-model="user.email" class="form-control" placeholder="Email" required="">
                 </div>
                 <div class="input-icon">
                     <span class="fa-lock fa"></span>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" ng-model="user.password" class="form-control" placeholder="Password" required="">
                 </div>
 
-                <a ui-sref="auth.feed" class="btn btn-block btn-primary btn-embossed">Log in</a>
-
+                <button style="width:50%; display:inline-block" class="btn btn-block btn-primary btn-embossed" ng-click="login()">Sign in</button>
+                <button style="width:50%; margin-top:0px; float: right;" class="btn btn-block btn-warning btn-embossed" ng-click="signup()">Sign Up</button>
                 <div class="login-action clearfix">
                     <div class="col-md-8 col-xs-9">
-                        <label class="checkbox" for="checkbox1">
-                            <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox" />Remember Me
-                        </label>
+                        <!--<a ui-sref="unauth.signup">Don't have an account?</a>-->
                     </div>
                     <div class="col-md-4 col-xs-3">
-                        <a href="#fakeLink">Forget?</a>
+                        <a href>Forgot Password?</a>
                     </div>
                 </div>
             </div>

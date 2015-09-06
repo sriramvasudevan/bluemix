@@ -141,7 +141,9 @@ h1 small {
 .sidebar-nav li a:focus {
     text-decoration: none;
 }
-
+a.article {
+    color:#364347;
+}
 
 
 @media(min-width:768px) {

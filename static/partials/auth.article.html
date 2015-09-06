@@ -1,0 +1,6 @@
+<div ng-controller="ArticleCtrl">
+    <h1>{{ article.title }} <small>{{ article.source }}</small></h1>
+    <p>{{ article.description }}</p>
+    <h3><a ui-sref=".discuss">Discuss</a></h3>
+    <div ui-view></div>
+</div>

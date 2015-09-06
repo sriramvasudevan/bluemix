@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="issue">
+
+<head>
+    <meta charset="utf-8">
+    <title>Issue Mail</title>
+    <meta name="description" content="Issue Mail: follow the issues you care about" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Loading static/Bootstrap -->
+    <link href="static/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Font Awesome Icons -->
+    <link href="static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Loading Drunken Parrot UI -->
+    <link href="static/css/drunken-parrot.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div ui-view></div>
+
+    <script src="static/bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- Angular Dependencies -->
+    <script src="static/bower_components/angular/angular.min.js"></script>
+    <script src="static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="static/bower_components/angular-animate/angular-animate.min.js"></script>
+
+    <!-- UI bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+    <!-- Angular Scripts -->
+    <script src="static/app.js"></script>
+    <script src="static/scripts/controllers/home.js"></script>
+    <script src="static/scripts/controllers/you.js"></script>
+    <script src="static/scripts/controllers/follow.js"></script>
+    <script src="static/scripts/controllers/discussion.js"></script>
+    <script src="static/scripts/controllers/article.js"></script>
+
+    <script src="static/scripts/services/auth.js"></script>
+    <script src="static/scripts/services/auth2.js"></script>
+
+</body>
+
+</html>

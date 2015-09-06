@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-6">
+        <form ng-submit="change_pass()" style="margin-top:25px">
+            <div class="form-group input-icon">
+                <span class="fa fa-envelope"></span>
+                <input type="text" class="form-control" ng-model="user.email" placeholder="Email Address">
+            </div>
+            <div class="form-group input-icon">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="form-control" ng-model="user.old_pass" placeholder="Old Password">
+            </div>
+            <div class="form-group input-icon">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="form-control" ng-model="user.pass" placeholder="New Password">
+            </div>
+            <div class="form-group input-icon">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="form-control" ng-model="user.pass2" placeholder="Confirm new Password">
+            </div>
+            <button type="sumbit" class="btn btn-md btn-stroke">Submit</button>
+        </form>
+    </div>
+</div>

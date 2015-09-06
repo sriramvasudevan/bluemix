@@ -3,8 +3,8 @@
 var app = angular
     .module('issue', [
   'ui.router',
-  'ui.bootstrap'
-
+  'ui.bootstrap',
+  'firebase'
 ])
     .config(function ($stateProvider, $urlRouterProvider) {
         //
@@ -15,26 +15,53 @@ var app = angular
         $stateProvider
             .state('unauth', {
                 url: "/",
-                templateUrl: "partials/home.html"
+                templateUrl: "static/partials/home.html",
+                resolve: {
+                    authentication: function ($state, Auth2) {
+                        return Auth2.$onAuth(function (authData) {
+                            if (authData) {
+                                $state.go('auth.feed');
+                            }
+                        });
+                    }
+                }
             })
             .state('auth', {
                 url: "/",
-                templateUrl: "partials/auth.html"
+                templateUrl: "static/partials/auth.html",
+                resolve: {
+                    authentication: function ($state, Auth2) {
+                        return Auth2.$onAuth(function (authData) {
+                            if (!authData) {
+                                $state.go('unauth');
+                            }
+                        });
+                    }
+                }
+
             })
             .state('auth.feed', {
                 url: "feed",
-                templateUrl: "partials/auth.feed.html"
+                templateUrl: "static/partials/auth.feed.html"
             })
             .state('auth.article', {
-                url: "article",
-                templateUrl: "partials/auth.article.html"
+                url: "article/:articleId",
+                templateUrl: "static/partials/auth.article.html"
+            })
+            .state('auth.preferences', {
+                url: "preferences",
+                templateUrl: "static/partials/auth.preferences.html"
             })
             .state('auth.follow', {
                 url: "follow",
-                templateUrl: "partials/auth.follow.html"
+                templateUrl: "static/partials/auth.follow.html"
             })
-            .state('auth.discuss', {
-                url: "discuss",
-                templateUrl: "partials/auth.discuss.html"
+            .state('auth.change_pass', {
+                url: "change_pass",
+                templateUrl: "static/partials/auth.change_pass.html"
+            })
+            .state('auth.article.discuss', {
+                url: "article/discuss/:discussId",
+                templateUrl: "static/partials/auth.article.discuss.html"
             });
     });

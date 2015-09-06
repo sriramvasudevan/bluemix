@@ -4,14 +4,15 @@
             <button type="button" class="navbar-toggle" ng-init="navbarCollapsed = true" ng-click="navbarCollapsed = !navbarCollapsed">
                 <span style="font-size: 25px"class="fa fa-bars"></span>
             </button>
-            <a class="navbar-brand" style="width:158px" href="#/">IssueMail</a>
+            <a class="navbar-brand" style="width:158px" ui-sref="auth.feed">IssueMail</a>
             <a class="navbar-brand hidden-xs" style="padding-top:25px; padding-left:12px; height:76px; width:30px;" ng-init="sidebar = true" ng-click="sidebar = !sidebar" id="menu-toggle"><span ng-hide="sidebar" class="fa fa-bars"></span><span ng-show="sidebar" class="fa fa-times"></span></a>
         </div>
+        
+        <!-- NAV -->
         <div class="collapse navbar-collapse" collapse="navbarCollapsed">
             <div class="nav-border">
                 <ul id = "left" class="nav navbar-nav">
-                    <li class="first-nav-li"><a ui-sref=".feed">Read</a></li>
-                    <li><a ui-sref=".discuss">Discuss</a></li>
+                    <li class="first-nav-li"><a ui-sref=".feed">Updates</a></li>
                     <li><a ui-sref=".follow">Follow</a></li>
                 </ul>
                 <ul id = "right" class="nav navbar-nav navbar-right navbar-icons last-nav-li">
@@ -21,9 +22,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <div class="arrow top"></div>
-                            <li><a href="#">View</a></li>
-                            <li><a href="#">Change Password</a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a ui-sref=".preferences">Preferences</a></li>
+                            <li><a ui-sref=".change_pass">Change Password</a></li>
+                            <li><a ng-click="logout()">Log Out <span class="fa fa-exclamation-circle"></span></a></li>
                         </ul>
                     </li>
                     <li dropdown on-toggle="toggled(open)">
@@ -36,19 +37,17 @@
                             <li><p>Bla bla bla</p></li>
                         </ul>
                     </li>
-                    <li class="hidden-lg hidden-md hidden-sm" dropdown on-toggle="toggled(open)">
-                        <a href class="dropdown-toggle" dropdown-toggle><span class="fa fa-cog"></span> <span class="hidden-lg">Settings</span></a>
-                        <ul class="dropdown-menu">
-                            <div class="arrow top"></div>
-                            <li><a ui-sref="unauth">Log Out</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <p class="navbar-text navbar-right hidden-sm hidden-xs">What issues do you care about, <a href="#" class="navbar-link">Jerry</a>?</p>
             </div>
         </div>
     </nav>
+    <!-- END NAV -->
+    
+    
     <div id="wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
+        
+        
         <!-- Sidebar -->
         <div id="sidebar-wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
             <div style="position: relative">
@@ -56,15 +55,15 @@
                     <li>
                         <a href ng-init="userCollapsed = true" ng-class="{ 'active': !userCollapsed}" ng-click="userCollapsed = !userCollapsed"><i class="fa fa-user"></i> My Account</a>
                         <ul class="sidebar-dropdown" collapse="userCollapsed">
-                            <li><a href="#">View</a></li>
-                            <li><a href="#">Change Password</a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a ui-sref=".preferences">Preferences</a></li>
+                            <li><a ui-sref=".change_pass">Change Password</a></li>
+                            <li><a ng-click="logout()">Log Out <span class="fa fa-exclamation-circle"></span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href ng-init="issueCollapsed = true" ng-class="{ 'active': !issueCollapsed}" ng-click="issueCollapsed = !issueCollapsed"><i class="fa fa-info-circle"></i> Issues</a>
+                        <a href ng-init="issueCollapsed = true" ng-class="{ 'active': !issueCollapsed }" ng-click="issueCollapsed = !issueCollapsed"><i class="fa fa-info-circle"></i> Issues</a>
                         <ul class="sidebar-dropdown" collapse="issueCollapsed">
-                            <li><a href="#">Action</li>
+                            <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                         </ul>
@@ -84,6 +83,8 @@
                 </ul>
             </div>
         </div>
+        <!-- End Sidebar -->
+        
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div ui-view></div>

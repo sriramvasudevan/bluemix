@@ -1,0 +1,26 @@
+<div class="login-tab">
+    <div class="tile tile-login">
+        <h1 style="margin-bottom:40px; color:#fad46b;">Issue Mail</h1>
+        <form ng-submit="signin()">
+            <div class="input-icon">
+                <span class="fa fa-envelope"></span>
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="input-icon">
+                <span class="fa-lock fa"></span>
+                <input type="password" class="form-control" placeholder="Password">
+            </div>
+
+            <button type="submit" ui-sref="auth.feed" class="btn btn-block btn-primary btn-embossed">Sign in</button>
+        </form>
+
+        <div class="login-action clearfix">
+            <div class="col-md-8 col-xs-9">
+                <a ui-sref="unauth.signup">Don't have an account?</a>
+            </div>
+            <div class="col-md-4 col-xs-3">
+                <a href>Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="login-tab">
+    <div class="tile tile-login">
+        <h1 style="margin-bottom:40px; color:#fad46b;">Issue Mail</h1>
+        <form ng-submit="create_user()">
+            <div class="input-icon">
+                <span class="fa fa-envelope"></span>
+                <input type="email" ng-init="user.email = ''"ng-model="user.email" class="form-control" placeholder="Email">
+            </div>
+            <div class="input-icon">
+                <span class="fa-lock fa"></span>
+                <input type="password" ng-init="user.password = ''" ng-model="user.password" class="form-control" style="margin-bottom:0px" placeholder="Password">
+            </div>
+            <div class="input-icon">
+                <span class="fa-lock fa"></span>
+                <input type="password" ng-init="user.password2 = ''"ng-model="user.password2" class="form-control" placeholder="Confirm Password">
+            </div>
+
+            <button type="submit" class="btn btn-block btn-primary btn-embossed">Sign Up</button>
+        </form>
+
+        <div class="login-action clearfix">
+            <div class="col-md-8 col-xs-9">
+                <a ui-sref="unauth.signin">Have an account?</a>
+            </div>
+        </div>
+    </div>
+</div>
