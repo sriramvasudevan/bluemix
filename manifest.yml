@@ -1,4 +1,4 @@
 ---
 applications:
-- name: bluemix-python-flask-sample
+- name: issuem
   memory: 128M
