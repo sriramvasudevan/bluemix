@@ -1,21 +1,21 @@
 <div ng-controller="YouCtrl" id="page-content-wrapper">
-    <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav id="top" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header" ng-hide="" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
             <button type="button" class="navbar-toggle" ng-init="navbarCollapsed = true" ng-click="navbarCollapsed = !navbarCollapsed">
-                <span style="font-size: 25px"class="fa fa-bars"></span>
+                <span style="font-size: 25px" class="fa fa-bars"></span>
             </button>
-            <a class="navbar-brand" style="width:158px" ui-sref="auth.feed">IssueMail</a>
+            <a class="navbar-brand" style="width:158px" ui-sref="auth">IssueMail</a>
             <a class="navbar-brand hidden-xs" style="padding-top:25px; padding-left:12px; height:76px; width:30px;" ng-init="sidebar = true" ng-click="sidebar = !sidebar" id="menu-toggle"><span ng-hide="sidebar" class="fa fa-bars"></span><span ng-show="sidebar" class="fa fa-times"></span></a>
         </div>
-        
+
         <!-- NAV -->
         <div class="collapse navbar-collapse" collapse="navbarCollapsed">
             <div class="nav-border">
-                <ul id = "left" class="nav navbar-nav">
+                <ul id="left" class="nav navbar-nav">
                     <li class="first-nav-li"><a ui-sref=".feed">Updates</a></li>
                     <li><a ui-sref=".follow">Follow</a></li>
                 </ul>
-                <ul id = "right" class="nav navbar-nav navbar-right navbar-icons last-nav-li">
+                <ul id="right" class="nav navbar-nav navbar-right navbar-icons last-nav-li">
                     <li dropdown on-toggle="toggled(open)">
                         <a href="#" class="hidden-md hidden-lg hidden-sm dropdown-toggle" dropdown-toggle>
                             <span class="fa fa-user"></span> My Account
@@ -34,20 +34,22 @@
                         </a>
                         <ul class="dropdown-menu">
                             <div class="arrow top"></div>
-                            <li><p>Bla bla bla</p></li>
+                            <li>
+                                <a>Bla bla bla</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-                <p class="navbar-text navbar-right hidden-sm hidden-xs">What issues do you care about, <a href="#" class="navbar-link">Jerry</a>?</p>
+                <p class="navbar-text navbar-right hidden-sm hidden-xs">What issues do you care about, <a ui-sref=".preferences" class="navbar-link">{{ profile.first_name }}</a>?</p>
             </div>
         </div>
     </nav>
     <!-- END NAV -->
-    
-    
+
+
     <div id="wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
-        
-        
+
+
         <!-- Sidebar -->
         <div id="sidebar-wrapper" ng-class="{'open': sidebar === true, 'closed': sidebar != true}">
             <div style="position: relative">
@@ -63,9 +65,7 @@
                     <li>
                         <a href ng-init="issueCollapsed = true" ng-class="{ 'active': !issueCollapsed }" ng-click="issueCollapsed = !issueCollapsed"><i class="fa fa-info-circle"></i> Issues</a>
                         <ul class="sidebar-dropdown" collapse="issueCollapsed">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li ng-repeat="issue in profile.issues"><a ui-sref="auth.feed({'issue':issue})">{{issue}}</a></li>
                         </ul>
                     </li>
                     <li>
@@ -84,7 +84,6 @@
             </div>
         </div>
         <!-- End Sidebar -->
-        
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div ui-view></div>

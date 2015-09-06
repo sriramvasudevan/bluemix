@@ -1,12 +1,22 @@
-<div class="row">
-    <div class="col-lg-8">
-        <h1 style="color:#02baf2; margin-left: -5px;">Your Updates:</h1>
-        <div ng-repeat="(key, value) in articles">
-            <h1><a ng-href="#/article/{{ key }}" class="article">{{ value.headline }}</a> <small><span ng-href="{{ value.source_url }}">{{ value.source }}</span></small></h1>
-            <p>{{ value.description }}</p>
+<div ng-controller="FeedCtrl">
+    <div class="row" ng-init="number = 0">
+        <div class="col-lg-8">
+            <h1 style="color:#02baf2; margin-left: -5px;">Your Updates:</h1>
+            <div ng-repeat="(key, value) in articles | orderBy: 'created_at':true" style="margin-top:40px; margin-bottom:40px">
+                <div class="media-left">
+                    <div class="media-object"><img src="{{ value.thumbnail }}" style="border-bottom: 4px solid #0FC7FF;"></div>
+                </div>
+                <div class="media-body">
+                    <h1 class="media-heading" style="font-size:25px"><a ng-href="{{ value.url }}" target="_blank" class="article">{{ value.headline }}</a></h1>
+                    <p style="font-size:17px">{{ value.summary }}</p>
+                    <span style="color:#b2c6cd">{{ value.date }}</span>
+                    <span style="margin-left:2em; color:#b2c6cd" ng-class="{'fa fa-smile-o': value.sentiment == 'positive', 'fa fa-frown-o': value.sentiment == 'negative', 'fa fa-circle-thin': value.sentiment == 'neutral' }"></span>
+                </div>
+            </div>
+            <a class="btn btn-default btn-md" scroll-to="top" ng-click="load_more()">Load More</a>
         </div>
-    </div>
-    <div class="col-lg-4">
-        <h1>Hello</h1>
+        <div class="col-lg-4">
+            <h1 style="color:#02baf2;">Timeline</h1>
+        </div>
     </div>
 </div>

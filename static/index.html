@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="issue">
+
+<head>
+    <meta charset="utf-8">
+    <title>Issue Mail</title>
+    <meta name="description" content="Issue Mail: follow the issues you care about" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Loading Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Font Awesome Icons -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Loading Drunken Parrot UI -->
+    <link href="css/drunken-parrot.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div ui-view></div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- Angular Dependencies -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+    <!-- UI bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.js"></script>
+    
+    <!-- Smooth Scroll -->
+    <script src="/bower_components/ngSmoothScroll/angular-smooth-scroll.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+    <!-- Angular Scripts -->
+    <script src="app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/you.js"></script>
+    <script src="scripts/controllers/follow.js"></script>
+    <script src="scripts/controllers/discussion.js"></script>
+    <script src="scripts/controllers/article.js"></script>
+    <script src="scripts/controllers/feed.js"></script>
+
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/auth2.js"></script>
+
+</body>
+
+</html>

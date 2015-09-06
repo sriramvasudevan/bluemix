@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('YouCtrl', function ($firebase, $state, $http, $scope, Auth2) {
+app.controller('YouCtrl', function ($firebase, $stateParams, $state, $http, $scope, Auth2) {
     var ref = new Firebase("https://issuemail.firebaseio.com/");
 
     $scope.logout = function () {
@@ -9,10 +9,6 @@ app.controller('YouCtrl', function ($firebase, $state, $http, $scope, Auth2) {
         }
     };
 
-    $http.get('http://issuem.mybluemix.net/getStories/drought').then(function (data) {
-        $scope.articles = data.stories[0];
-    });
-    
     $scope.user = {};
 
     $scope.change_pass = function () {
@@ -35,17 +31,19 @@ app.controller('YouCtrl', function ($firebase, $state, $http, $scope, Auth2) {
             return;
         }
     };
-    
-    $scope.profile = 
-    
-    {
-        'name': 'Jerry Liang',
-        'first_name': 'Jerry',
-        'last_name': 'Liang',
-        'service': true,
-        'email': 'jeriscc@gmail.com',
-        'frequency': {'count': "Weekly", "timestamp": 1441495046},
-        'issues': ['Drought']
-    }
 
+    $scope.profile =
+
+        {
+            'name': 'Jerry Liang',
+            'first_name': 'Jerry',
+            'last_name': 'Liang',
+            'service': true,
+            'email': 'jeriscc@gmail.com',
+            'frequency': {
+                'count': "Weekly",
+                "timestamp": 1441495046
+            },
+            'issues': ['drought', 'lgbt']
+        };
 });
