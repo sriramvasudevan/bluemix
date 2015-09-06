@@ -1,0 +1,20 @@
+<div ng-controller="WelcomeCtrl">
+    <div class="col-md-8">
+        <h2>Please fill up the following!</h2>
+        <form ng-submit="create_profile()">
+            <div class="form-group input-icon">
+                <span class="fa fa-envelope"></span>
+                <input type="email" class="form-control" ng-model="user.email" placeholder="Email Address">
+            </div>
+            <div class="form-group input-icon">
+                <span class="fa fa-user"></span>
+                <input type="text" class="form-control" ng-model="user.first_name" placeholder="First Name">
+            </div>
+            <div class="form-group input-icon">
+                <span class="fa fa-lock"></span>
+                <input type="text" class="form-control" ng-model="user.last_name" placeholder="Last Name">
+            </div>
+            <button type="submit" class="btn btn-default btn-md">Create</button>
+        </form>
+    </div>
+</div>

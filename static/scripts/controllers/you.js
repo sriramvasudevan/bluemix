@@ -1,7 +1,14 @@
 'use strict';
 
-app.controller('YouCtrl', function ($firebase, $stateParams, $state, $http, $scope, Auth2) {
+app.controller('YouCtrl', function ($firebase, $stateParams, $state, $http, $scope, Auth2, $firebaseObject) {
     var ref = new Firebase("https://issuemail.firebaseio.com/");
+
+    Auth2.$onAuth(function (authData) {
+        if (authData) {
+            $scope.authData = authData;
+            $scope.profile = $firebaseObject(ref.child("profile").child($scope.authData.uid));
+        }
+    });
 
     $scope.logout = function () {
         if (confirm("Are you sure you want to log out?")) {
@@ -31,19 +38,4 @@ app.controller('YouCtrl', function ($firebase, $stateParams, $state, $http, $sco
             return;
         }
     };
-
-    $scope.profile =
-
-        {
-            'name': 'Jerry Liang',
-            'first_name': 'Jerry',
-            'last_name': 'Liang',
-            'service': true,
-            'email': 'jeriscc@gmail.com',
-            'frequency': {
-                'count': "Weekly",
-                "timestamp": 1441495046
-            },
-            'issues': ['drought', 'lgbt']
-        };
 });

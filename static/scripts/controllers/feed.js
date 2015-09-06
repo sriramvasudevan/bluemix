@@ -18,4 +18,12 @@ app.controller("FeedCtrl", function ($http, $stateParams, $scope) {
             alert("That's all in this topic!");
         }
     }
+    $scope.load_back = function () {
+        if ($scope.number > 0) {
+            $scope.number -= 1;
+            $scope.articles = $scope.clusters[$scope.number];
+        } else {
+            alert("You can't go back anymore!");
+        }
+    }
 });

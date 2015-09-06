@@ -55,6 +55,10 @@ var app = angular
                 url: "preferences",
                 templateUrl: "partials/auth.preferences.html"
             })
+            .state('auth.welcome', {
+                url: "welcome",
+                templateUrl: "partials/auth.welcome.html"
+            })
             .state('auth.follow', {
                 url: "follow",
                 templateUrl: "partials/auth.follow.html"

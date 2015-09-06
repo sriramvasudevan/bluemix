@@ -16,6 +16,24 @@ app.factory('Auth', function ($firebase, $firebaseAuth) {
                 email: user.email,
                 password: user.password
             });
+        },
+        createProfile: function (user, authData) {
+            var profile = {
+                first_name: user.first_name,
+                last_name: user.last_name,
+                email: user.email,
+                name: user.first_name + " " + user.last_name,
+                profile_image: authData.password.profileImageURL,
+                issues: ['drought', 'airpollution', 'lgbt', 'netneutrality', 'foodwastage']
+            };
+            var profileRef = ref.child('profile').child(authData.uid);
+            return profileRef.set(profile, function (error) {
+                if (error) {
+                    alert("Data could not be saved." + error);
+                } else {
+                    alert("Data saved successfully.");
+                }
+            });
         }
     };
 

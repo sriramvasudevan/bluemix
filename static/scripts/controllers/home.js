@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('HomeCtrl', function ($scope, Auth) {
+app.controller('HomeCtrl', function ($scope, Auth, $state) {
     $scope.user = {};
     
     $scope.login = function () {
@@ -15,6 +15,8 @@ app.controller('HomeCtrl', function ($scope, Auth) {
     $scope.signup = function () {
         Auth.register($scope.user).then(function () {
             alert('success!');
+            Auth.login($scope.user);
+            $state.go("auth.welcome");
             $scope.user.email = null;
             $scope.user.password = null;
         }).catch(function (error) {
